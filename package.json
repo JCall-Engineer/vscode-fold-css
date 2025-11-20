@@ -1,0 +1,30 @@
+{
+  "name": "fold-css",
+  "displayName": "Fold CSS",
+  "description": "Tells VsCode what regions are foldable in a CSS file",
+  "publisher": "jcall-engineer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JCall-Engineer/fold-css.git"
+  },
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "main": "extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "css",
+        "aliases": ["CSS"],
+        "extensions": [".css", ".scss", ".sass"]
+      }
+    ]
+  },
+  "scripts": {
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0"
+  }
+}

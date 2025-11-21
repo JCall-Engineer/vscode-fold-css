@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/JCall-Engineer/vscode-fold-css.git"
   },
-  "version": "1.0.8",
+  "version": "1.0.9",
   "engines": {
     "vscode": "^1.75.0"
   },
@@ -27,14 +27,7 @@
           "description": "Enable debug logging to Fold CSS output channel"
         }
       }
-    },
-    "languages": [
-      {
-        "id": "css",
-        "aliases": ["CSS"],
-        "extensions": [".css", ".scss", ".sass"]
-      }
-    ]
+    }
   },
   "scripts": {
     "publish": "vsce publish"

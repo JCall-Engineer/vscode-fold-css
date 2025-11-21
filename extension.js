@@ -4,12 +4,17 @@ const vscode = require('vscode');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-	console.log('Fold CSS extension activated!');
+	const DEBUG = config.get('debug') || false;
+	const output = DEBUG ? vscode.window.createOutputChannel("Fold CSS") : null;
+
+	if (DEBUG && output) output.clear();
+	if (DEBUG && output) output.appendLine('Fold CSS extension activated!');
+
 	let disposable = vscode.languages.registerFoldingRangeProvider(
 		['css', 'scss', 'sass'],
 		{
 			provideFoldingRanges(document) {
-				console.log('provideFoldingRanges called, lineCount:', document.lineCount);
+				if (DEBUG && output) output.appendLine('provideFoldingRanges called, lineCount:', document.lineCount);
 				const ranges = [];
 				const stack = [];
 				let inComment = false;
@@ -48,7 +53,7 @@ function activate(context) {
 					}
 				}
 
-				console.log('Returning ranges:', ranges);
+				if (DEBUG && output) output.appendLine('Returning ranges:', ranges);
 				return ranges;
 			}
 		}

@@ -1,4 +1,5 @@
 const vscode = require('vscode');
+const path = require('path');
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -15,7 +16,7 @@ function activate(context) {
 		['css', 'scss', 'sass'],
 		{
 			provideFoldingRanges(document) {
-				if (DEBUG && output) output.appendLine('provideFoldingRanges called, lineCount:', document.lineCount);
+				if (DEBUG && output) output.appendLine(`provideFoldingRanges called for: ${path.basename(document.fileName)}, lineCount: ${document.lineCount}`);
 				const ranges = [];
 				const stack = [];
 				let inComment = false;
@@ -54,7 +55,7 @@ function activate(context) {
 					}
 				}
 
-				if (DEBUG && output) output.appendLine('Returning ranges:', ranges);
+				if (DEBUG && output) output.appendLine(`Returning ranges: ${JSON.stringify(ranges.map(r => ({start: r.start, end: r.end})))}`);
 				return ranges;
 			}
 		}

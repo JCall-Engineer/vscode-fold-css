@@ -24,6 +24,22 @@ With this extension, all brace-delimited blocks are properly foldable at their c
 
 ![After](img/after.png)
 
+## Installation
+
+Install from the VS Code Marketplace, then add this to your `settings.json` to use this extension instead of the built-in CSS folding:
+
+```json
+"[css]": {
+  "editor.defaultFoldingRangeProvider": "jcall-engineer.fold-css"
+},
+"[scss]": {
+  "editor.defaultFoldingRangeProvider": "jcall-engineer.fold-css"
+},
+"[sass]": {
+  "editor.defaultFoldingRangeProvider": "jcall-engineer.fold-css"
+}
+```
+
 ## How It Works
 
 The extension parses CSS files character-by-character, tracking:
